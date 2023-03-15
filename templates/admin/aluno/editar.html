@@ -1,0 +1,68 @@
+<div>
+  <h5 class="">Editar Aluno</h5>
+  <form class="class="row row-cols-lg-auto g-3"">
+    <div class="input-group mb-2 mr-sm-2">
+
+      <div class="input-group-prepend">
+        <div class="input-group-text">Pesquisar</div>
+      </div>
+      <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Nome ou Moodle ID">
+      <button type="submit" class="btn btn-success ml-2">Buscar</button>
+    </div>
+  </form>
+</div>
+
+<hr>
+<form action="/admin/aluno/cadastrar" method="post">
+  <div class="form-row">              
+      <div class="form-group col-md-1">
+        <label for="inputCity">Moodle ID</label>
+        <input type="text" name="moodleID" class="form-control" id="inputCity" disabled>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputCity">Nome</label>
+        <input type="text" name="name" class="form-control" id="inputCity">
+      </div>
+      <div class="form-group col-md-3">
+        <label for="inputZip">Data Matricula</label>
+        <input type="date" name="date" class="form-control" id="inputZip" disabled>
+      </div>
+      <div class="form-group col-md-2">
+          <label for="inputState">Status</label>
+          <select id="inputState" name="status" class="form-control">
+            <option value="active">ATIVO</option>
+            <option value="canceled">CANCELADO</option>
+            <option value="suspend">SUPENSO</option>
+            <option value="other">OUTRO</option>
+          </select>
+      </div>
+  </div>
+  <div class="form-row">
+      <div class="form-group col-md-9">
+          <label for="inputState">Curso</label>
+          <select name="course" id="inputState" class="form-control">
+            <option value="1">CURSO DE EST</option>
+            <option value="2">CURSO APC UTI</option>
+            <option value="3">CURSO PC TCC</option>
+            <option value="4">CURSO NEURO</option>
+          </select>
+      </div>
+      <div class="form-group col-md-3">
+          <label for="inputState">Cronograma</label>
+          <select id="inputState" name="schedule" class="form-control">
+            <option value="6">6x</option>
+            <option value="12">12x</option>
+            <option value="18">18x</option>
+            <option value="24">24x</option>
+          </select>
+      </div>
+  </div>
+  <div class="form-group">
+      <label for="exampleFormControlTextarea1">Observações</label>
+      <textarea class="form-control" name="observation" id="exampleFormControlTextarea1" rows="3"></textarea>
+  </div>
+  <div class="form-group text-right">
+      <button class="btn btn-outline-danger">Cancelar</button>
+      <button type="submit" class="btn btn-success">Cadastrar</button>
+  </div>
+</form>

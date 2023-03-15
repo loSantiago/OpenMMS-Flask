@@ -1,0 +1,54 @@
+<h5>Cadastro de Curso</h5>
+<hr>
+<form>
+  <div class="form-row">
+    <div class="form-group col-md-2">
+      <label for="cohortID">ID Curso / cohort</label>
+      <input type="text" class="form-control" name="id" id="cohortID">
+    </div>
+
+    <div class="form-group col-md-7">
+        <label for="name">Titulo / Nome do Curso</label>
+        <input type="text" name="name" class="form-control" id="name">
+    </div>
+    <div class="form-group col-md-3">
+      <label for="date">Data Cadastro</label>
+      <input type="date" name="date" class="form-control" id="date">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-3">
+      <input type="number" name="disciplines" class="form-control" id="disciplines" placeholder="QTD. Disciplinas do Curso">
+    </div>
+    <div class="form-group col-md-2">
+        <button onclick="createFilds()" class="btn btn-success">Gerar Campos</button>
+    </div>
+    <div class="form-group input-group col-md-3">
+      <!-- Only space-->
+    </div>
+    <div class="form-group input-group col-md-4">
+        <div class="input-group-prepend">
+          <div class="input-group-text">C. Horária</div>
+        </div>
+        <input type="text" class="form-control" name="durationTime" id="durationTime" placeholder="Carga Horária do Curso">
+    </div>
+    <hr>
+  </div>
+  <div id="discGrade">
+    <script src="/js/jquery/createDisciplinesFilds.js"> </script>
+  </div>
+  <hr>
+  <div class="form-group mt-3">
+      <label for="observation">Observações</label>
+      <textarea class="form-control" name="observation" id="observation" rows="4"></textarea>
+  </div>
+  <div class="form-group text-right">
+      <button class="btn btn-outline-danger">Cancelar</button>
+      <button type="submit" class="btn btn-success">Cadastrar</button>
+  </div>
+</form>
+
+<script
+  src="https://code.jquery.com/jquery-3.6.2.slim.min.js"
+  integrity="sha256-E3P3OaTZH+HlEM7f1gdAT3lHAn4nWBZXuYe89DFg2d0="
+  crossorigin="anonymous"></script>
