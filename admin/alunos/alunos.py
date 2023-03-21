@@ -1,6 +1,10 @@
 from flask import Blueprint, render_template as render
 from flask import request
 
+from moodle_api.core.moodlews import WS
+
+ws = WS()
+
 alunos_bp = Blueprint("alunos_bp", __name__)
 
 @alunos_bp.route('/admin')
@@ -23,7 +27,10 @@ def visualizar_aluno():
 @alunos_bp.route('/ocultar-aluno', methods=["GET", "POST"])
 def ocultar_aluno():
     if request.method == "POST":
-        recebe(request.body)
-        return render('admin/alunos/ocultar.html', fui="OK")
+        
+        dados = dict(request.form)
+        print(dados)
+        ws.obter_lista_salas(dados)
+        return render('admin/alunos/ocultar.html', fui='ok')
     else:
         return render('admin/alunos/ocultar.html', fui="0")
