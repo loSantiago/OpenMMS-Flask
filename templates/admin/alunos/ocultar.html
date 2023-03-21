@@ -1,0 +1,65 @@
+{% extends 'index.html' %}
+
+{% block body %}
+<h5>Ocultar Alunos</h5>
+
+{%
+  if fui == "OK"
+%}
+
+{{fui}}
+
+{% endif %}
+
+        <hr>
+        <form action="/admin/ocultar-aluno" method="POST">
+            <div class="form-row">              
+                <div class="form-group col-md-3">
+                  <label for="inputCity">Moodle ID</label>
+                  <input type="text" name="moodleID" class="form-control" id="inputCity">
+                </div>
+                <div class="form-group col-md-5">
+                  <label for="inputZip">Data Matricula</label>
+                  <input type="date" name="date" class="form-control" id="inputZip">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="inputState">Status</label>
+                    <select id="inputState" name="status" class="form-control">
+                      <option value="active">ATIVO</option>
+                      <option value="suspend">SUSPENSO</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-9">
+                    <label for="inputState">Curso</label>
+                    <select name="course" id="inputState" class="form-control">
+                      <option value="88">CURSO DE EST</option>
+                      <option value="71">CURSO APC UTI</option>
+                      <option value="56">CURSO PC TCC</option>
+                      <option value="85">CURSO EMERG VET</option>
+                      <option value="66">CURSO PSICO ORGANIZACIONAL</option>
+                      <option value="69">CURSO ENFER OCOLOGICA</option>
+                      <option value="67">CURSO ONCOLOGIA, HEMATOLOGIA E CUIDADOS PALIATIVOS</option>
+                      <option value="103">CURSO DIREITO AMBIENTAL</option>
+                      <option value="104">CURSO GESTÃO DE PESSOAS E TALENTOS</option>
+                      <option value="99">CURSO PSICO DIAGNOSTICO</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="inputState">Cronograma</label>
+                    <select id="inputState" name="schedule" class="form-control">
+                      <option value="6">6x</option>
+                      <option value="9">9x</option>
+                      <option value="12">12x</option>
+                      <option value="15">18x</option>
+                      <option value="18">18x</option>
+                      <option value="24">24x</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group text-right">
+                <button type="submit" class="btn btn-success">Cadastrar</button>
+            </div>
+          </form>
+{% endblock %}

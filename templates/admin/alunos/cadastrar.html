@@ -1,3 +1,6 @@
+{% extends 'index.html' %}
+
+{% block body %}
 <h5>Cadastro de Alunos</h5>
         <hr>
         <form action="/admin/aluno/cadastrar" method="post">
@@ -53,3 +56,4 @@
                 <button type="submit" class="btn btn-success">Cadastrar</button>
             </div>
           </form>
+{% endblock %}

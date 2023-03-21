@@ -1,13 +1,16 @@
+{% extends 'index.html' %}
+
+{% block body%}
+
 <h5>Cadastro de Alunos</h5>
 <hr>
-{{#each Show}}
   <ul>
-    <li>Nome: {{name}}</li>
-    <li>status: {{status}}</li>
-    <li>Email: {{email}}</li>
-    <li>Acesso: {{access}}</li>
+    <li>Nome: </li>
+    <li>status: </li>
+    <li>Email: </li>
+    <li>Acesso: </li>
   </ul>
-{{/each}}
+
 <hr>
         <form action="/admin/usuarios/cadatro" method="post">
             <div class="form-row">              
@@ -70,3 +73,5 @@
                 <button type="submit" class="btn btn-success">Cadastrar</button>
             </div>
           </form>
+
+{% endblock %}
