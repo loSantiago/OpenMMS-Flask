@@ -5,17 +5,14 @@ from .token.wstoken import WSTOKEN
 class WS:
 
     def __init__(self):
-        pass
-
-    
-    wsf = WSFunction(WSTOKEN.token())
-
-
+        self.WSToken = WSTOKEN()
+        self.WSFunction = WSFunction()
+        
     def obter_lista_salas(self, dados):
 
         id = dados['moodleID']
         
-        query = wsf.diciplinas_matriculadas(id)
+        query = self.WSFunction.diciplinas_matriculadas(self.WSToken.token(), id)
 
         response = requests.get(WSTOKEN.url(), query)
 
