@@ -6,7 +6,7 @@ class WSFunction:
     def descadastrar_curso(self, token, usuarioID, cursoID):
         descadastrar = {
             'wstoken': token,
-            'wsfuntion' : 'enrol_manual_unenrol_users',
+            'wsfunction' : 'enrol_manual_unenrol_users',
             'enrolments[0][userid]' : usuarioID,
             'enrolments[0][courseid]' : cursoID,
             'enrolments[0][roleid]' : 5, #5 para aluno
@@ -18,7 +18,7 @@ class WSFunction:
     def diciplinas_matriculadas(self, token, usuarioID):
         todas_disciplinas_matriculadas = {
             'wstoken': token,
-            'wsfuntion' : 'core_enrol_get_users_courses',
+            'wsfunction' : 'core_enrol_get_users_courses',
             'userid' : usuarioID,
             'moodlewsrestformat' : 'json'
         }
@@ -28,7 +28,7 @@ class WSFunction:
     def cadastrar_curso(self, token, usuarioID, cursoID, timestamp_matricula, suspenso = 0):
         cadastrar = {
             'wstoken': token,
-            'wsfuntion' : 'enrol_manual_enrol_users',
+            'wsfunction' : 'enrol_manual_enrol_users',
             'enrolments[0][userid]' : usuarioID,
             'enrolments[0][courseid]' : cursoID,
             'enrolments[0][timestart]' : timestamp_matricula, #em milisenconds, data de inicio
@@ -42,7 +42,7 @@ class WSFunction:
     def cadastrar_cohort(self, token, cohortID, usuarioID):
         cadastro_cohort = {
             'wstoken': token,
-            'wsfuntion' : 'core_cohort_add_cohort_members',
+            'wsfunction' : 'core_cohort_add_cohort_members',
             'members[0][cohorttype][type]' : 'id',
             'members[0][cohorttype][value]' : cohortID,
             '&members[0][usertype][type]' : 'id',

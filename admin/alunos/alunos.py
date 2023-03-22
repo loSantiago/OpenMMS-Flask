@@ -30,7 +30,7 @@ def ocultar_aluno():
         
         dados = dict(request.form)
         print(dados)
-        ws.obter_lista_salas(dados)
-        return render('admin/alunos/ocultar.html', fui='ok')
+        fui = ws.obter_lista_salas(dados)
+        return render('admin/alunos/ocultar.html', fui=fui)
     else:
-        return render('admin/alunos/ocultar.html', fui="0")
+        return render('admin/alunos/ocultar.html', fui="void")

@@ -13,19 +13,19 @@
 
     <div class="form-group col-md-7">
         <label for="name">Titulo / Nome do Curso</label>
-        <input type="text" name="name" class="form-control" id="name">
+        <input type="text" name="nome-curso" class="form-control" id="name">
     </div>
     <div class="form-group col-md-3">
       <label for="date">Data Cadastro</label>
-      <input type="date" name="date" class="form-control" id="date">
+      <input type="date" name="data-cadastro" class="form-control" id="date">
     </div>
   </div>
   <div class="form-row">
     <div class="form-group col-md-3">
-      <input type="number" name="disciplines" class="form-control" id="disciplines" placeholder="QTD. Disciplinas do Curso">
+      <input type="number" min="1" name="quantidade-disciplinas" class="form-control" id="quantidade-disciplinas" placeholder="QTD. Disciplinas do Curso">
     </div>
     <div class="form-group col-md-2">
-        <button onclick="createFilds()" class="btn btn-success">Gerar Campos</button>
+        <input id="gerar-campos" type="button" value="Gerar Campos" class="btn btn-success">
     </div>
     <div class="form-group input-group col-md-3">
       <!-- Only space-->
@@ -34,17 +34,18 @@
         <div class="input-group-prepend">
           <div class="input-group-text">C. Horária</div>
         </div>
-        <input type="text" class="form-control" name="durationTime" id="durationTime" placeholder="Carga Horária do Curso">
+        <input type="text" class="form-control" name="carga-horaria" id="carga-horaria" placeholder="Carga Horária do Curso">
     </div>
     <hr>
   </div>
-  <div id="discGrade">
-    <script src="/js/jquery/createDisciplinesFilds.js"> </script>
+
+  <div id="area-campos" class="form-row">
+    <!-- Campos nome e id da disciplina -->
   </div>
-  <hr>
+
   <div class="form-group mt-3">
       <label for="observation">Observações</label>
-      <textarea class="form-control" name="observation" id="observation" rows="4"></textarea>
+      <textarea class="form-control" name="observation" id="observacoes" rows="4"></textarea>
   </div>
   <div class="form-group text-right">
       <button class="btn btn-outline-danger">Cancelar</button>
@@ -55,6 +56,33 @@
 <script
   src="https://code.jquery.com/jquery-3.6.2.slim.min.js"
   integrity="sha256-E3P3OaTZH+HlEM7f1gdAT3lHAn4nWBZXuYe89DFg2d0="
-  crossorigin="anonymous"></script>
+  crossorigin="anonymous">
+</script>
+
+<script>
+    $(function() {
+      $("#gerar-campos").click( () => {
+        let quantidade = $("#quantidade-disciplinas").val();
+        const campos = $("#area-campos");
+
+        if (quantidade) {
+          quantidade = parseInt(quantidade);
+          campos.empty();
+
+          for (let i=0; i < quantidade; i++) {
+            campos.append('<div class="form-group col-md-2">\
+      <label for="id-disciplina-'+(i+1)+'">ID Disciplina</label>\
+      <input type="text" class="form-control" name="id-disciplina-'+(i+1)+'"id="id-disciplina">\
+    </div>\
+    <div class="form-group col-md-10">\
+        <label for="nome-disciplina-'+(i+1)+'">Nome Disciplina</label>\
+        <input type="text" name="nome-disciplina-'+(i+1)+'"class="form-control" id="nome-disciplina">\
+    </div>');
+          }
+        } 
+      });
+    });
+</script>
+
 
 {% endblock %}
