@@ -1,0 +1,77 @@
+{% extends 'index.html' %}
+
+{% block body%}
+
+<h5>Cadastro de Alunos</h5>
+<hr>
+  <ul>
+    <li>Nome: </li>
+    <li>status: </li>
+    <li>Email: </li>
+    <li>Acesso: </li>
+  </ul>
+
+<hr>
+        <form action="/admin/usuarios/cadatro" method="post">
+            <div class="form-row">              
+                <div class="form-group col-md-7">
+                  <label for="inputCity">Nome</label>
+                  <input type="text" name="name" class="form-control" id="inputCity">
+                </div>
+                <div class="form-group col-md-3">
+                  <label for="inputZip">Data Cadastro</label>
+                  <input type="date" name="date" class="form-control" id="inputZip">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="inputState">Status</label>
+                    <select id="inputState" name="status" class="form-control">
+                      <option value="active">ATIVO</option>
+                      <option value="canceled">CANCELADO</option>
+                      <option value="suspend">SUPENSO</option>
+                      <option value="other">OUTRO</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">              
+                <div class="form-group col-md-7">
+                  <label for="inputCity">Email</label>
+                  <input type="email" name="email" class="form-control" id="inputCity">
+                </div>
+                <div class="form-group col-md-3">
+                  <label for="inputZip">Senha</label>
+                  <input type="password" name="password" class="form-control" id="inputZip">
+                </div>
+                <div class="form-group col-md-2">
+                  <label for="inputZip">Confirmar senha</label>
+                  <input type="password" class="form-control" id="inputZip">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-7">
+                    <label for="inputState">Nivel de Acesso</label>
+                    <select name="access" id="inputState" class="form-control">
+                      <option value="administrator">Administrador</option>
+                      <option value="coord">Coordenador</option>
+                      <option value="professor">Professor</option>
+                      <option value="tutor">Tutor</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-5">
+                <label for="inputState">Acesso Surpervisionado?</label>
+                <select name="auditable" id="inputState" class="form-control">
+                  <option value="0">Não</option>
+                  <option value="1">Sim</option>
+                </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Observações</label>
+                <textarea class="form-control" name="observation" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+            <div class="form-group text-right">
+                <button class="btn btn-outline-danger">Cancelar</button>
+                <button type="submit" class="btn btn-success">Cadastrar</button>
+            </div>
+          </form>
+
+{% endblock %}
