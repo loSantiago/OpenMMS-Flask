@@ -47,5 +47,5 @@ class WS:
             resposta = requests.get(self.WSHost.url(), query_string)'''
             
         #resposta = resposta.json()
-        return "Oi"
+        return "Oi"sss
             
