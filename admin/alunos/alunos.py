@@ -9,7 +9,7 @@ alunos_bp = Blueprint("alunos_bp", __name__)
 
 @alunos_bp.route('/admin')
 def index_admin():
-    return render('navbar.html')
+    return render('index.html')
 
 @alunos_bp.route('/cadastrar-aluno')
 def cadastrar_aluno():
@@ -26,11 +26,11 @@ def visualizar_aluno():
 #Rotas de dados
 @alunos_bp.route('/ocultar-aluno', methods=["GET", "POST"])
 def ocultar_aluno():
+    fui = 'void'
     if request.method == "POST":
-        
         dados = dict(request.form)
+        fui = ws.ocultar_salas(dados)
         print(dados)
-        fui = ws.obter_lista_salas(dados)
         return render('admin/alunos/ocultar.html', fui=fui)
     else:
         return render('admin/alunos/ocultar.html', fui="void")
