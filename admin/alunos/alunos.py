@@ -1,9 +1,9 @@
 from flask import Blueprint, render_template as render
 from flask import request
 
-from moodle_api.core.moodlews import WS
+from moodle_api.core.moodlews import MoodleWS
 
-ws = WS()
+ws = MoodleWS()
 
 alunos_bp = Blueprint("alunos_bp", __name__)
 
@@ -29,8 +29,10 @@ def ocultar_aluno():
     fui = 'void'
     if request.method == "POST":
         dados = dict(request.form)
-        fui = ws.ocultar_salas(dados)
+
         print(dados)
+
+        fui = ws.ocultar_salas(dados)
         return render('admin/alunos/ocultar.html', fui=fui)
     else:
         return render('admin/alunos/ocultar.html', fui="void")
