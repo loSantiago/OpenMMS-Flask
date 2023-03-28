@@ -28,7 +28,10 @@ class MoodleWS:
     def ocultar_salas(self, dados):
 
         grade = [979, 441, 478, 479, 978, 977, 268, 969, 372, 1137, 378, 214, 1136, 1138, 257]
-
+        
+        #
+        qtd_disciplina = len(grade)
+        
         #Realiza a chama para obter as disciplinas cadastradas do aluno.
         lista_salas = self.obter_lista_salas(dados)
         
@@ -47,8 +50,6 @@ class MoodleWS:
 
         #
         for id_curso in grade:
-            qtd_disciplina = len(grade)
-
             #montagem da query para enviar ao moodle.
             query_string = self.WSFunction.cadastrar_curso(dados['moodleID'],
                                             id_curso,
@@ -62,6 +63,6 @@ class MoodleWS:
             resposta = self.WSRequest.get(query_string)
             
         resposta = self.WSRequest.json(resposta)
-
+        
         return resposta
             

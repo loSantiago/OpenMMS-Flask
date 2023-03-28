@@ -21,4 +21,4 @@ app.register_blueprint(config_bp, url_prefix='/admin')
 
 #Seguraça;
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
