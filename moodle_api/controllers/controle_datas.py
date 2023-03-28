@@ -3,7 +3,7 @@ import math
 
 class ControleData:
 
-    def __init__(self):
+    def __init__(self): #ss
         pass
 
     def time_stamp(self, data):
