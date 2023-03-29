@@ -30,7 +30,7 @@ def ocultar_aluno():
     if request.method == "POST":
         dados = dict(request.form)
 
-        print(dados)
+        #print(dados)
 
         fui = ws.ocultar_salas(dados)
         return render('admin/alunos/ocultar.html', fui=fui)
