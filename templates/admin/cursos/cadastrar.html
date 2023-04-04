@@ -2,13 +2,18 @@
 
 {% block body %}
 
+{% if resultado != '' %}
+  {{resultado}}
+{% endif %}
+
+
 <h5>Cadastro de Curso</h5>
 <hr>
-<form>
+<form action='/admin/cadastrar-curso' method="POST">
   <div class="form-row">
     <div class="form-group col-md-2">
       <label for="cohortID">ID Curso / cohort</label>
-      <input type="text" class="form-control" name="id" id="cohortID">
+      <input type="text" class="form-control" name="id" id="id-curso">
     </div>
 
     <div class="form-group col-md-7">
@@ -22,7 +27,7 @@
   </div>
   <div class="form-row">
     <div class="form-group col-md-3">
-      <input type="number" min="1" max="60" name="quantidade-disciplinas" class="form-control" id="quantidade-disciplinas" placeholder="QTD. Disciplinas do Curso">
+      <input type="number" min="1" max="60" name="quantidade-disciplinas" class="form-control" id="qtd-disciplinas" placeholder="QTD. Disciplinas do Curso">
     </div>
     <div class="form-group col-md-2">
         <input id="gerar-campos" type="button" value="Gerar Campos" class="btn btn-success">
@@ -63,7 +68,7 @@
 <script>
     $(function() {
       $("#gerar-campos").click( () => {
-        let quantidade = $("#quantidade-disciplinas").val();
+        let quantidade = $("#qtd-disciplinas").val();
         //garante que quantidade seja sempre menor que 60.
         if(quantidade > 60) { quantidade = 1 }
 
